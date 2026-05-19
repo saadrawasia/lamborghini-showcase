@@ -4,6 +4,8 @@
 
 @theme {
   --color-orange: #ff6a00;
+  --color-black: #191919;
+  --color-white: #f3f4f6;
 }
 
 html,
@@ -14,4 +16,8 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
   font-family: 'Bebas Neue', sans-serif;
+}
+
+.color-logo {
+  clip-path: inset(100% 0 0 0);
 }
