@@ -174,7 +174,12 @@ const Hero = () => {
       className='py-4 md:py-8 bg-linear-to-r from-white from-50%  to-orange to-50%'
     >
       <div className='container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
-        <img src='/images/header-logo.png' alt='header-logo' id='header-logo' />
+        <img
+          src='/images/header-logo.png'
+          alt='header-logo'
+          id='header-logo'
+          className='max-w-3xs md:max-w-full'
+        />
         <img
           src='/images/full.png'
           alt='front-car'
@@ -182,7 +187,9 @@ const Hero = () => {
           id='front-car'
         />
         <div className='flex flex-col items-center gap-3 md:gap-5'>
-          <h1 className='text-4xl paragraph'>Naturally Aspirated Chaos</h1>
+          <h1 className='text-4xl text-center paragraph'>
+            Naturally Aspirated Chaos
+          </h1>
           <h2 className='text-black/70 text-2xl max-w-3xl text-center paragraph'>
             A machine built before silence took over.
             <br /> Raw V10 power, razor-sharp design, and the unmistakable soul
