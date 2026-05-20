@@ -21,3 +21,10 @@ body {
 .color-logo {
   clip-path: inset(100% 0 0 0);
 }
+
+@utility masked-img {
+  mask-image: url('/images/logo.svg');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 50%;
+}

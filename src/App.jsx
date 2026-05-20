@@ -1,16 +1,11 @@
-import { useState } from 'react'
 import Hero from './components/Hero'
 import Loader from './components/Loader'
 
 function App() {
-  const [loaded, setLoaded] = useState(false)
-
-  if (!loaded) {
-    return <Loader onDone={() => setLoaded(true)} />
-  }
   return (
     <>
-      <main>
+      <main className='my-8 md:my-16'>
+        {/* <Loader /> */}
         <Hero />
       </main>
     </>
