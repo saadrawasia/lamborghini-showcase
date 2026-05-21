@@ -115,7 +115,7 @@ const Hero = () => {
   }, [isPlaying])
 
   useGSAP(() => {
-    const paragraphSplit = new SplitText('.paragraph', { type: 'lines' })
+    const paragraphSplit = new SplitText('#hero .paragraph', { type: 'lines' })
 
     gsap.from('#header-logo', {
       opacity: 0,
@@ -139,6 +139,8 @@ const Hero = () => {
       },
     )
 
+    console.log({ paragraphSplit })
+
     gsap.from(paragraphSplit.lines, {
       opacity: 0,
       yPercent: 100,
@@ -155,7 +157,7 @@ const Hero = () => {
       delay: 1,
       ease: 'expo.out',
     })
-  })
+  }, [])
 
   const handleAudio = async () => {
     if (!audioRef.current) return
@@ -171,9 +173,9 @@ const Hero = () => {
   return (
     <section
       id='hero'
-      className='py-4 md:py-8 bg-linear-to-r from-white from-50%  to-orange to-50%'
+      className='py-4 md:py-8 bg-linear-to-r from-white from-50%  to-orange to-50% content-center'
     >
-      <div className='container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
+      <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <img
           src='/images/header-logo.png'
           alt='header-logo'
@@ -187,10 +189,10 @@ const Hero = () => {
           id='front-car'
         />
         <div className='flex flex-col items-center gap-3 md:gap-5'>
-          <h1 className='text-4xl text-center paragraph'>
+          <h1 className='text-3xl md:text-5xl text-center paragraph'>
             Naturally Aspirated Chaos
           </h1>
-          <h2 className='text-black/70 text-2xl max-w-3xl text-center paragraph'>
+          <h2 className='text-black/70 text-2xl md:text-4xl max-w-3xl text-center paragraph'>
             A machine built before silence took over.
             <br /> Raw V10 power, razor-sharp design, and the unmistakable soul
             of Italian engineering.

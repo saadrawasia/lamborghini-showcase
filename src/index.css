@@ -23,6 +23,10 @@ body {
 }
 
 @layer components {
+  main {
+    @apply w-full overflow-x-hidden;
+  }
+
   .container {
     @apply px-4 md:px-8;
   }
