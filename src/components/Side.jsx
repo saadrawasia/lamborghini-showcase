@@ -68,7 +68,7 @@ const Side = () => {
         </h2>
         <div className='flex flex-col md:flex-row gap-5 md:gap-16 items-center'>
           <img
-            src='/images/side.png'
+            src='images/side.png'
             alt='side-car'
             id='side-car-img'
             className='max-w-xl w-full'

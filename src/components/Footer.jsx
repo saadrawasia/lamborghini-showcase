@@ -80,7 +80,7 @@ const Footer = () => {
           </p>
           <div className='flex flex-col gap-2 items-center'>
             <img
-              src='/images/footer-logo.png'
+              src='images/footer-logo.png'
               alt='footer-logo'
               id='footer-logo-img'
               className='max-w-xl w-full'

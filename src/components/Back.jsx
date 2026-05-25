@@ -80,7 +80,7 @@ const Back = () => {
               Designed to be remembered.
             </p>
           </div>
-          <img src='/images/back.png' alt='back-car' id='back-car-img' />
+          <img src='images/back.png' alt='back-car' id='back-car-img' />
         </div>
       </div>
     </section>

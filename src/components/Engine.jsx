@@ -76,7 +76,7 @@ const Engine = () => {
             <p className='text-orange/70 paragraph'>5.2L V10</p>
           </div>
           <img
-            src='/images/engine.png'
+            src='images/engine.png'
             alt='engine-car'
             id='engine-car-img'
             className='max-w-xl w-full'
