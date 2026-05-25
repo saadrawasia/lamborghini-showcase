@@ -47,10 +47,10 @@ const Loader = ({ onComplete }) => {
       id='loader'
     >
       <div class='relative inline-block w-3xs' id='logo-container'>
-        <img src='/images/logo.svg' class='w-full grayscale' alt='logo' />
+        <img src='images/logo.svg' class='w-full grayscale' alt='logo' />
 
         <img
-          src='/images/logo.svg'
+          src='images/logo.svg'
           class='absolute inset-0 w-full color-logo'
           alt='logo color'
         />

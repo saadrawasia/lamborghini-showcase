@@ -180,13 +180,13 @@ const Hero = () => {
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <img
-          src='/images/header-logo.png'
+          src='images/header-logo.png'
           alt='header-logo'
           id='header-logo'
           className='max-w-3xs md:max-w-full'
         />
         <img
-          src='/images/full.png'
+          src='images/full.png'
           alt='front-car'
           className='w-full max-w-2xl'
           id='front-car'
@@ -218,7 +218,7 @@ const Hero = () => {
         </div>
       </div>
       <audio
-        src='/audio/gas-lamborghini-gallardo.mp3'
+        src='audio/gas-lamborghini-gallardo.mp3'
         className='hidden'
         ref={audioRef}
         onPlay={() => setIsPlaying(true)}
