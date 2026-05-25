@@ -37,16 +37,6 @@ const Stats = () => {
           yPercent: 100,
           ease: 'expo.out',
           stagger: 0.06,
-        },
-        'contentReveal',
-      )
-      .from(
-        '#stats-car-img',
-        {
-          opacity: 0,
-          y: 200,
-          duration: 1,
-          ease: 'expo.out',
           onComplete: () => markComplete('stats'),
         },
         'contentReveal',

@@ -7,6 +7,7 @@ import { ScrollTrigger, SplitText } from 'gsap/all'
 import Side from './components/Side'
 import Engine from './components/Engine'
 import Stats from './components/Stats'
+import Footer from './components/Footer'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -20,6 +21,7 @@ function App() {
         <Side />
         <Engine />
         <Stats />
+        <Footer />
       </main>
     </AnimationProvider>
   )
