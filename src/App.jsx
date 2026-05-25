@@ -6,6 +6,7 @@ import { AnimationProvider } from './context/AnimationContext'
 import { ScrollTrigger, SplitText } from 'gsap/all'
 import Side from './components/Side'
 import Engine from './components/Engine'
+import Stats from './components/Stats'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -18,6 +19,7 @@ function App() {
         <Back />
         <Side />
         <Engine />
+        <Stats />
       </main>
     </AnimationProvider>
   )
