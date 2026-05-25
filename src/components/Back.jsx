@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 import { useAnimation } from '../context/AnimationContext'
 
 const Back = () => {
-  const { isComplete } = useAnimation()
+  const { isComplete, markComplete } = useAnimation()
   const heroComplete = isComplete('hero')
   const isMobile = useMediaQuery({ maxWidth: 767 })
   useGSAP(() => {
@@ -48,6 +48,7 @@ const Back = () => {
           x: isMobile ? 0 : 200,
           duration: 1,
           ease: 'expo.out',
+          onComplete: () => markComplete('back'),
         },
         'contentReveal',
       )
@@ -60,7 +61,7 @@ const Back = () => {
   return (
     <section
       id='back'
-      className={`overflow-hidden h-dvh ${!heroComplete ? 'invisible' : ''}`}
+      className={`overflow-hidden ${!heroComplete ? 'invisible' : ''}`}
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <h2 className='text-3xl md:text-5xl text-center'>

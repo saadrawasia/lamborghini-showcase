@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Loader from './components/Loader'
 import { AnimationProvider } from './context/AnimationContext'
 import { ScrollTrigger, SplitText } from 'gsap/all'
+import Side from './components/Side'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -14,6 +15,7 @@ function App() {
         {/* <Loader /> */}
         <Hero />
         <Back />
+        <Side />
       </main>
     </AnimationProvider>
   )
