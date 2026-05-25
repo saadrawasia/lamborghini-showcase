@@ -2,8 +2,10 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
 import { useEffect, useRef, useState } from 'react'
+import { useAnimation } from '../context/AnimationContext'
 
 const Hero = () => {
+  const { markComplete } = useAnimation()
   const audioRef = useRef()
   const waveCanvasRef = useRef(null)
   const audioContextRef = useRef(null)
@@ -139,8 +141,6 @@ const Hero = () => {
       },
     )
 
-    console.log({ paragraphSplit })
-
     gsap.from(paragraphSplit.lines, {
       opacity: 0,
       yPercent: 100,
@@ -156,6 +156,7 @@ const Hero = () => {
       duration: 1.8,
       delay: 1,
       ease: 'expo.out',
+      onComplete: () => markComplete('hero'),
     })
   }, [])
 
