@@ -17,6 +17,8 @@ const Back = () => {
       scrollTrigger: {
         trigger: '#back',
         start: 'top bottom',
+        once: true,
+        fastScrollEnd: true,
       },
     })
 
@@ -61,7 +63,7 @@ const Back = () => {
   return (
     <section
       id='back'
-      className={`overflow-hidden ${!heroComplete ? 'invisible' : ''}`}
+      className={`flex items-center justify-center overflow-hidden min-h-dvh ${!heroComplete ? 'invisible' : ''}`}
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <h2 className='text-3xl md:text-5xl text-center'>

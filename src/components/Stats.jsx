@@ -17,6 +17,8 @@ const Stats = () => {
       scrollTrigger: {
         trigger: '#stats',
         start: 'top bottom',
+        once: true,
+        fastScrollEnd: true,
       },
     })
 
@@ -50,7 +52,7 @@ const Stats = () => {
   return (
     <section
       id='stats'
-      className={`overflow-hidden ${!engineComplete ? 'invisible' : ''}`}
+      className={`flex items-center justify-center overflow-hidden min-h-dvh ${!engineComplete ? 'invisible' : ''}`}
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <h2 className='text-3xl md:text-5xl text-center'>

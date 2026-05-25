@@ -174,7 +174,7 @@ const Hero = () => {
   return (
     <section
       id='hero'
-      className='py-4 md:py-8 bg-linear-to-r from-white from-50%  to-orange to-50% content-center'
+      className='py-4 md:py-8 bg-linear-to-r from-white from-50% min-h-dvh to-orange to-50% content-center'
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <img

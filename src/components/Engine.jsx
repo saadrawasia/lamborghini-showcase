@@ -17,6 +17,8 @@ const Engine = () => {
       scrollTrigger: {
         trigger: '#engine',
         start: 'top bottom',
+        once: true,
+        fastScrollEnd: true,
       },
     })
 
@@ -60,7 +62,7 @@ const Engine = () => {
   return (
     <section
       id='engine'
-      className={`overflow-hidden ${!sideComplete ? 'invisible' : ''}`}
+      className={`flex items-center justify-center overflow-hidden min-h-dvh ${!sideComplete ? 'invisible' : ''}`}
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <h2 className='text-3xl md:text-5xl text-center'>
