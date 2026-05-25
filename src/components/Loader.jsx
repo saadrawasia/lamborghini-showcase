@@ -46,12 +46,12 @@ const Loader = ({ onComplete }) => {
       className='w-full h-screen bg-black flex items-center justify-center absolute'
       id='loader'
     >
-      <div class='relative inline-block w-3xs' id='logo-container'>
-        <img src='images/logo.svg' class='w-full grayscale' alt='logo' />
+      <div className='relative inline-block w-3xs' id='logo-container'>
+        <img src='images/logo.svg' className='w-full grayscale' alt='logo' />
 
         <img
           src='images/logo.svg'
-          class='absolute inset-0 w-full color-logo'
+          className='absolute inset-0 w-full color-logo'
           alt='logo color'
         />
       </div>

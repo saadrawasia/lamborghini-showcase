@@ -1,14 +1,9 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
-import { useAnimation } from '../context/AnimationContext'
 
 const Stats = () => {
-  const { isComplete, markComplete } = useAnimation()
-  const engineComplete = isComplete('engine')
   useGSAP(() => {
-    if (!engineComplete) return
-
     const paragraphSplit = new SplitText('#stats .paragraph', {
       type: 'lines',
     })
@@ -39,7 +34,6 @@ const Stats = () => {
           yPercent: 100,
           ease: 'expo.out',
           stagger: 0.06,
-          onComplete: () => markComplete('stats'),
         },
         'contentReveal',
       )
@@ -47,12 +41,12 @@ const Stats = () => {
     return () => {
       paragraphSplit.revert()
     }
-  }, [engineComplete])
+  }, [])
 
   return (
     <section
       id='stats'
-      className={`flex items-center justify-center overflow-hidden min-h-dvh ${!engineComplete ? 'invisible' : ''}`}
+      className={`flex items-center justify-center overflow-hidden min-h-dvh`}
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <h2 className='text-3xl md:text-5xl text-center'>

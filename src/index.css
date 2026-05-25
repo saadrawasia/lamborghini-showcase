@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-/* Trigger redeploy: harmless comment */
-
 @import 'tailwindcss';
 
 @theme {
@@ -11,12 +9,19 @@
 
 html,
 body {
+  height: 100%;
   width: 100%;
   background-color: #f3f4f6;
   color: #191919;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overflow-y: hidden;
   font-family: 'Bebas Neue', sans-serif;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .color-logo {

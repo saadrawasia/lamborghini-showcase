@@ -183,19 +183,19 @@ const Hero = () => {
           src='images/header-logo.png'
           alt='header-logo'
           id='header-logo'
-          className='max-w-3xs md:max-w-full'
+          className='max-w-3xs md:max-w-full w-2/5'
         />
         <img
           src='images/full.png'
           alt='front-car'
-          className='w-full max-w-2xl'
+          className=' w-1/2 max-w-xl'
           id='front-car'
         />
         <div className='flex flex-col items-center gap-3 md:gap-5'>
           <h1 className='text-3xl md:text-5xl text-center paragraph'>
             Naturally Aspirated Chaos
           </h1>
-          <h2 className='text-black/70 text-2xl md:text-4xl max-w-3xl text-center paragraph'>
+          <h2 className='text-black/70 text-lg md:text-2xl max-w-3xl text-center paragraph'>
             A machine built before silence took over.
             <br /> Raw V10 power, razor-sharp design, and the unmistakable soul
             of Italian engineering.

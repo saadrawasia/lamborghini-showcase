@@ -1,22 +1,16 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
-import { useAnimation } from '../context/AnimationContext'
 
 const Side = () => {
-  const { isComplete, markComplete } = useAnimation()
-  const backComplete = isComplete('back')
   useGSAP(() => {
-    if (!backComplete) return
-
     const paragraphSplit = new SplitText('#side .paragraph', { type: 'lines' })
 
     const scrollTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#side',
         start: 'top bottom',
-        once: true,
-        fastScrollEnd: true,
+        snap: 0.5,
       },
     })
 
@@ -47,7 +41,6 @@ const Side = () => {
           x: -200,
           duration: 1,
           ease: 'expo.out',
-          onComplete: () => markComplete('side'),
         },
         'contentReveal',
       )
@@ -55,12 +48,12 @@ const Side = () => {
     return () => {
       paragraphSplit.revert()
     }
-  }, [backComplete])
+  }, [])
 
   return (
     <section
       id='side'
-      className={`flex items-center justify-center overflow-hidden min-h-dvh ${!backComplete ? 'invisible' : ''}`}
+      className={`flex items-center justify-center overflow-hidden min-h-dvh`}
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <h2 className='text-3xl md:text-5xl text-center'>
