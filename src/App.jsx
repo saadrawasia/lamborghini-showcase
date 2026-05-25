@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Back from './components/Back'
 import Hero from './components/Hero'
 import { AnimationProvider } from './context/AnimationContext'
@@ -8,12 +8,14 @@ import Side from './components/Side'
 import Engine from './components/Engine'
 import Stats from './components/Stats'
 import Footer from './components/Footer'
+import Loader from './components/Loader'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
 function App() {
   const snapLockRef = useRef(false)
   const unlockTimeoutRef = useRef(null)
+  const [loaderComplete, setLoaderComplete] = useState(false)
 
   useLayoutEffect(() => {
     if ('scrollRestoration' in window.history) {
@@ -24,6 +26,8 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if (!loaderComplete) return
+
     const getSections = () =>
       Array.from(document.querySelectorAll('main > section[id]'))
 
@@ -113,19 +117,26 @@ function App() {
       window.removeEventListener('wheel', onWheel)
       unlockSnap()
     }
-  }, [])
+  }, [loaderComplete])
 
   return (
     <AnimationProvider>
-      <main className='flex flex-col gap-12 md:gap-16 overflow-hidden'>
-        {/* <Loader /> */}
-        <Hero />
-        <Back />
-        <Side />
-        <Engine />
-        <Stats />
-        <Footer />
-      </main>
+      <>
+        {!loaderComplete && (
+          <Loader onComplete={() => setLoaderComplete(true)} />
+        )}
+
+        {loaderComplete && (
+          <main className='flex flex-col gap-12 md:gap-16 overflow-hidden'>
+            <Hero />
+            <Back />
+            <Side />
+            <Engine />
+            <Stats />
+            <Footer />
+          </main>
+        )}
+      </>
     </AnimationProvider>
   )
 }

@@ -1,7 +1,9 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { useAnimation } from '../context/AnimationContext'
 
-const Loader = () => {
+const Loader = ({ onComplete }) => {
+  const { markComplete } = useAnimation()
   useGSAP(() => {
     const tl = gsap.timeline()
     tl.fromTo(
@@ -25,14 +27,19 @@ const Loader = () => {
         duration: 1,
         ease: 'power1.inOut',
       })
-      .to('#loader', {
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power1.out',
-      })
-      .to('#loader', {
-        display: 'none',
-      })
+      .to(
+        '#loader',
+        {
+          opacity: 0,
+          duration: 0.6,
+          ease: 'power1.out',
+          onComplete: () => {
+            markComplete('loader')
+            onComplete?.()
+          },
+        },
+        '-=0.5',
+      )
   }, [])
   return (
     <div
