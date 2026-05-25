@@ -1,16 +1,95 @@
-# React + Vite
+# Lamborghini Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A cinematic, section-based Lamborghini landing experience built with React, Vite, GSAP, and Tailwind CSS.
 
-Currently, two official plugins are available:
+The app uses a loader-first flow, chained reveal animations, and controlled wheel scrolling to move section by section.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React 19
+- Vite 8
+- GSAP + ScrollTrigger + SplitText
+- Tailwind CSS 4
+- react-responsive
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Fullscreen animated loader before page content appears
+- Sequential section reveal flow:
+	Hero -> Back -> Side -> Engine -> Stats -> Footer
+- SplitText line-by-line text animations
+- ScrollTrigger-based section animation timelines
+- One-wheel-step section navigation with fast-scroll protection
+- Native scrolling allowed inside tall sections before snapping to next section
+- Scroll restoration disabled on refresh so page always starts from top
+- Mobile responsive layouts, including 2x2 stats grid on small screens
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```text
+src/
+	App.jsx
+	index.css
+	main.jsx
+	context/
+		AnimationContext.jsx
+	components/
+		Loader.jsx
+		Hero.jsx
+		Back.jsx
+		Side.jsx
+		Engine.jsx
+		Stats.jsx
+		Footer.jsx
+```
+
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Run development server
+
+```bash
+npm run dev
+```
+
+### 3. Build for production
+
+```bash
+npm run build
+```
+
+### 4. Preview production build
+
+```bash
+npm run preview
+```
+
+## Scripts
+
+- `npm run dev` starts Vite in development mode
+- `npm run build` builds the production bundle
+- `npm run preview` previews the built app locally
+- `npm run lint` runs ESLint checks
+
+## Animation Flow Notes
+
+- Global animation completion state is managed in `AnimationContext`.
+- Each section waits for the previous section completion flag before becoming visible/animated.
+- Loader completion controls when main sections mount.
+- Section scroll behavior is managed in `App.jsx` to keep navigation predictable when scrolling quickly.
+
+## Assets
+
+Static assets are stored in:
+
+- `public/images`
+- `public/audio`
+
+## License
+
+This project is for showcase/demo purposes.
