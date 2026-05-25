@@ -1,8 +1,10 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
+import { useMediaQuery } from 'react-responsive'
 
 const Engine = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 })
   useGSAP(() => {
     const paragraphSplit = new SplitText('#engine .paragraph', {
       type: 'lines',
@@ -20,11 +22,11 @@ const Engine = () => {
       .from('#engine h2', {
         opacity: 0,
         duration: 1,
+        delay: 0.5,
         yPercent: 100,
         ease: 'expo.out',
         stagger: 0.02,
       })
-      .add('contentReveal')
       .from(
         paragraphSplit.lines,
         {
@@ -34,17 +36,18 @@ const Engine = () => {
           ease: 'expo.out',
           stagger: 0.06,
         },
-        'contentReveal',
+        '-=0.8',
       )
       .from(
         '#engine-car-img',
         {
           opacity: 0,
-          y: 200,
+          y: isMobile ? 0 : 200,
+          x: isMobile ? 200 : 0,
           duration: 1,
           ease: 'expo.out',
         },
-        'contentReveal',
+        '-=0.8',
       )
 
     return () => {
@@ -55,7 +58,7 @@ const Engine = () => {
   return (
     <section
       id='engine'
-      className={`flex items-center justify-center overflow-hidden min-h-dvh}`}
+      className={`flex items-center justify-center overflow-hidden min-h-dvh`}
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <h2 className='text-3xl md:text-5xl text-center'>

@@ -2,11 +2,8 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
 import { useEffect, useRef, useState } from 'react'
-import { useAnimation } from '../context/AnimationContext'
 
 const Hero = () => {
-  const { isComplete, markComplete } = useAnimation()
-  const loaderComplete = isComplete('loader')
   const audioRef = useRef()
   const waveCanvasRef = useRef(null)
   const audioContextRef = useRef(null)
@@ -118,7 +115,6 @@ const Hero = () => {
   }, [isPlaying])
 
   useGSAP(() => {
-    if (!loaderComplete) return
     const paragraphSplit = new SplitText('#hero .paragraph', { type: 'lines' })
 
     gsap.from('#header-logo', {
@@ -158,9 +154,8 @@ const Hero = () => {
       duration: 1.8,
       delay: 1,
       ease: 'expo.out',
-      onComplete: () => markComplete('hero'),
     })
-  }, [loaderComplete])
+  }, [])
 
   const handleAudio = async () => {
     if (!audioRef.current) return
@@ -176,7 +171,7 @@ const Hero = () => {
   return (
     <section
       id='hero'
-      className={`py-4 md:py-8 bg-linear-to-r from-white from-50% min-h-dvh to-orange to-50% content-center ${!loaderComplete ? 'invisible' : ''}`}
+      className={`py-4 md:py-8 bg-linear-to-r from-white from-50% min-h-dvh to-orange to-50% content-center`}
     >
       <div className='w-full max-w-6xl container flex flex-col justify-center items-center justify-self-center gap-5 md:gap-16'>
         <img

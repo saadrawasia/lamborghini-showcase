@@ -12,8 +12,7 @@ const Stats = () => {
       scrollTrigger: {
         trigger: '#stats',
         start: 'top bottom',
-        once: true,
-        fastScrollEnd: true,
+        snap: 0.5,
       },
     })
 
@@ -21,11 +20,11 @@ const Stats = () => {
       .from('#stats h2', {
         opacity: 0,
         duration: 1,
+        delay: 0.5,
         yPercent: 100,
         ease: 'expo.out',
         stagger: 0.02,
       })
-      .add('contentReveal')
       .from(
         paragraphSplit.lines,
         {
@@ -35,7 +34,7 @@ const Stats = () => {
           ease: 'expo.out',
           stagger: 0.06,
         },
-        'contentReveal',
+        '-=0.8',
       )
 
     return () => {

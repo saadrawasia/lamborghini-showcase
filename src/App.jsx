@@ -11,9 +11,10 @@ import Footer from './components/Footer'
 import Loader from './components/Loader'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
+ScrollTrigger.defaults({ scroller: 'main' })
 
 function App() {
-  const [loaderComplete, setLoaderComplete] = useState(false)
+  const [loaderComplete, setLoaderComplete] = useState(true)
 
   useLayoutEffect(() => {
     if ('scrollRestoration' in window.history) {

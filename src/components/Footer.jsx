@@ -21,10 +21,10 @@ const Footer = () => {
         opacity: 0,
         duration: 1,
         yPercent: 100,
+        delay: 0.5,
         ease: 'expo.out',
         stagger: 0.02,
       })
-      .add('contentReveal')
       .from(
         paragraphSplit.lines,
         {
@@ -34,7 +34,7 @@ const Footer = () => {
           ease: 'expo.out',
           stagger: 0.06,
         },
-        'contentReveal',
+        '-=0.8',
       )
       .from(
         '#footer-logo-img',
@@ -44,7 +44,7 @@ const Footer = () => {
           duration: 1,
           ease: 'expo.out',
         },
-        'contentReveal',
+        '-=0.8',
       )
 
     return () => {

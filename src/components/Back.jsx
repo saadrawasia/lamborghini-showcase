@@ -20,11 +20,11 @@ const Back = () => {
       .from('#back h2', {
         opacity: 0,
         duration: 1,
+        delay: 0.5,
         yPercent: 100,
         ease: 'expo.out',
         stagger: 0.02,
       })
-      .add('contentReveal')
       .from(
         paragraphSplit.lines,
         {
@@ -34,7 +34,7 @@ const Back = () => {
           ease: 'expo.out',
           stagger: 0.06,
         },
-        'contentReveal',
+        '-=0.8',
       )
       .from(
         '#back-car-img',
@@ -45,7 +45,7 @@ const Back = () => {
           duration: 1,
           ease: 'expo.out',
         },
-        'contentReveal',
+        '-=0.8',
       )
 
     return () => {

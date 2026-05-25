@@ -18,11 +18,11 @@ const Side = () => {
       .from('#side h2', {
         opacity: 0,
         duration: 1,
+        delay: 0.5,
         yPercent: 100,
         ease: 'expo.out',
         stagger: 0.02,
       })
-      .add('contentReveal')
       .from(
         paragraphSplit.lines,
         {
@@ -32,7 +32,7 @@ const Side = () => {
           ease: 'expo.out',
           stagger: 0.06,
         },
-        'contentReveal',
+        '-=0.8',
       )
       .from(
         '#side-car-img',
@@ -42,7 +42,7 @@ const Side = () => {
           duration: 1,
           ease: 'expo.out',
         },
-        'contentReveal',
+        '-=0.8',
       )
 
     return () => {
